@@ -6,8 +6,8 @@ from wtforms.validators import Required
 import requests
 import json
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'supercalifragilisticexpialidocious'
+# app = Flask(__name__)
+# app.config['SECRET_KEY'] = 'supercalifragilisticexpialidocious'
 
 ####################
 # 2 WTF Forms
@@ -53,44 +53,3 @@ def showDadForm():
         flash('All fields are required!')
         return redirect(url_for('index'))
     
-# @app.route('/dadresult', methods = ['GET', 'POST'])
-# def showDadResult():
-#     form = DadForm(request.form)
-#     if request.method == 'POST' and form.validate_on_submit():
-#         attitude = form.attitude.data
-#         dress = form.dress.data
-#         job = form.job.data
-#         if attitude == 'silly':
-#             attList = SILLY
-#         else:
-#             attList = SERIOUS
-#         if dress == 'business':
-#             dressList = BUSINESS
-#         elif dress == 'casual':
-#             dressList = CASUAL
-#         else:
-#             dressList = BADGE
-#         if job == 'blue collar':
-#             jobList = BLUE
-#         else:
-#             jobList = WHITE
-
-#         #set intersection method found here: https://stackoverflow.com/questions/3852780/python-intersection-of-multiple-lists
-#         d=[attList, dressList, jobList]
-#         d=sorted(d)
-#         result = set(d[0]).intersection(*d)
-
-#         return render_template('dad_result.html', result=result)
-        
-#     flash('All fields are required!')
-
-#     ########################
-#     # redirect and url_for #
-#     ########################
-#     return redirect(url_for('showDadForm'))
-
-# @app.route('/finaldad/<dadname>')
-# def showFinalDad(dadname):
-#     dadFile = getDadFile(dadname)
-#     return render_template('final_dad.html', dadName=dadname, dadFile=dadFile)
-
